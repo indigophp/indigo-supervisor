@@ -1,0 +1,8 @@
+<div class="btn-group">
+    {% if auth_has_access('supervisor.supervisor[view]') %}
+            <a href="{{ admin_url() ~ 'supervisor/view/' ~ key }}" class="hidden-print btn btn-default"><span class="glyphicon glyphicon-eye-open"></span></a>
+    {% endif %}
+    {% if auth_has_access('supervisor.supervisor[start]') %}
+            <a href="{{ admin_url() ~ 'supervisor/start/' ~ key }}" class="hidden-print btn btn-success"><span class="glyphicon glyphicon-play"></span></a>
+    {% endif %}
+</div>

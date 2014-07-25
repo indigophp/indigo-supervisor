@@ -1,0 +1,42 @@
+{% extends 'admin/layout.twig' %}
+
+{% block content %}
+<h2>{{ name }} <small>{{ instance.getSupervisorVersion() }}</small></h2>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">{% trans %}{{ name }} instance details{% endtrans %}</div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans 'Process name' %}</th>
+                <th>{% trans 'State' %}</th>
+                <th>{% trans 'Actions' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, item in instance.getAllProcesses() %}
+                {% set state = item.getPayload().statename %}
+                <tr>
+                    <td>{{ item.getName() }}</td>
+                    <td>{% include ['supervisor/process/state/' ~ state|lower ~ '.twig', 'supervisor/process/state/state.twig'] with {'state': state} only %}</td>
+                    <td>{% include ['supervisor/process/action/' ~ state|lower ~ '.twig', 'supervisor/process/action/action.twig'] %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="panel-footer">
+        {% if auth_has_access('supervisor.process[restart, all]') %}
+                <a href="{{ admin_url() ~ 'supervisor/restart_process/' ~ name }}" class="hidden-print btn btn-info"><span class="glyphicon glyphicon-refresh"></span> {% trans 'Restart all' %}</a>
+        {% endif %}
+        {% if auth_has_access('supervisor.process[stop, all]') %}
+                <a href="{{ admin_url() ~ 'supervisor/stop_process/' ~ name }}" class="hidden-print btn btn-danger"><span class="glyphicon glyphicon-stop"></span> {% trans 'Stop all' %}</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block documentready %}
+    IndigoAdmin.addFastButton('{% trans 'Back' %}', 'glyphicon glyphicon-arrow-left', '{{ admin_url() }}supervisor/');
+{% endblock %}

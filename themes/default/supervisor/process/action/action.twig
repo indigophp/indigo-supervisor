@@ -1,0 +1,8 @@
+<div class="btn-group">
+    {% if auth_has_access('supervisor.process[view]') %}
+            <a href="{{ admin_url() ~ 'supervisor/view_process/' ~ name ~ '/' ~ item.getName() }}" class="hidden-print btn btn-default"><span class="glyphicon glyphicon-eye-open"></span></a>
+    {% endif %}
+    {% if auth_has_access('supervisor.process[restart]') %}
+            <a href="{{ admin_url() ~ 'supervisor/start_process/' ~ name ~ '/' ~ item.getName() }}" class="hidden-print btn btn-success"><span class="glyphicon glyphicon-play"></span></a>
+    {% endif %}
+</div>

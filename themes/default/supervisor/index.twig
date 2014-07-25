@@ -1,0 +1,44 @@
+{% extends 'admin/layout.twig' %}
+
+{% block content %}
+<h2>{% trans 'Supervisor' %} <small>{% trans 'List of Supervisor servers' %}</small></h2>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">{% trans 'Supervisor servers' %}</div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans 'Instance name' %}</th>
+                <th>{% trans 'State' %}</th>
+                <th>{% trans 'Version' %}</th>
+                <th>{% trans 'API version' %}</th>
+                <th>{% trans 'Actions' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, item in instances %}
+                {% set state = item.getState().statename %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{% include ['supervisor/state/' ~ state|lower ~ '.twig', 'supervisor/state/state.twig'] with {'state': state} only %}</td>
+                    <td>{{ item.getSupervisorVersion() }}</td>
+                    <td>{{ item.getAPIVersion() }}</td>
+                    <td>{% include ['supervisor/action/' ~ state|lower ~ '.twig', 'supervisor/action/action.twig'] %}</td>
+                </tr>
+            {% else %}
+                    <td colspan="5">{% trans 'No instances' %}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="panel-footer">
+        {% if auth_has_access('supervisor.supervisor[restart, all]') %}
+                <a href="{{ admin_url() ~ 'supervisor/restart/' }}" class="hidden-print btn btn-info"><span class="glyphicon glyphicon-refresh"></span> {% trans 'Restart all' %}</a>
+        {% endif %}
+        {% if auth_has_access('supervisor.supervisor[shutdown, all]') %}
+                <a href="{{ admin_url() ~ 'supervisor/shutdown/' }}" class="hidden-print btn btn-danger"><span class="glyphicon glyphicon-stop"></span> {% trans 'Shutdown all' %}</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

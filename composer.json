@@ -1,0 +1,25 @@
+{
+    "name": "indigophp/indigo-supervisor",
+    "type": "fuel-module",
+    "description": "",
+    "license": "MIT",
+    "keywords": [""],
+    "homepage": "https://indigophp.com",
+    "authors": [
+        {
+            "name": "Márk Sági-Kazár",
+            "email": "mark.sagikazar@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "indigophp/fuel-supervisor": "dev-develop",
+        "indigophp/supervisor": "dev-develop",
+        "guzzlehttp/guzzle": "~4.1.0"
+    },
+    "extra": {
+        "installer-name": "supervisor"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
