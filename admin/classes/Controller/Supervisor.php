@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Indigo Supervisor module.
+ * This file is part of the Indigo Supervisor component.
  *
  * (c) Indigo Development Team
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Supervisor;
+namespace Indigo\Admin;
 
 use Admin\Controller_Base;
 use Indigo\Supervisor\Exception\SupervisorException;

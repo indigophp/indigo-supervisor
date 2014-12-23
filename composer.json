@@ -1,9 +1,9 @@
 {
     "name": "indigophp/indigo-supervisor",
-    "type": "fuel-module",
-    "description": "",
+    "type": "fuelphp-component",
+    "description": "IndigoPHP Supervisor component",
     "license": "MIT",
-    "keywords": [""],
+    "keywords": ["supervisor", "indigo"],
     "homepage": "https://indigophp.com",
     "authors": [
         {
@@ -13,9 +13,14 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "indigophp/fuel-supervisor": "dev-develop",
+        "composer/installers": "dev-master",
         "indigophp/supervisor": "dev-develop",
-        "guzzlehttp/guzzle": "~4.1.0"
+        "guzzlehttp/guzzle": ">=4.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Indigo\\Admin\\": "admin/classes/"
+        }
     },
     "extra": {
         "installer-name": "supervisor"

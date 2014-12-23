@@ -1,22 +1,19 @@
 # Indigo Supervisor
 
-[![Latest Stable Version](https://poser.pugx.org/indigophp/indigo-supervisor/v/stable.png)](https://packagist.org/packages/indigophp/indigo-supervisor)
-[![Total Downloads](https://poser.pugx.org/indigophp/indigo-supervisor/downloads.png)](https://packagist.org/packages/indigophp/indigo-supervisor)
-[![License](https://poser.pugx.org/indigophp/indigo-supervisor/license.png)](https://packagist.org/packages/indigophp/indigo-supervisor)
+[![Latest Version](https://img.shields.io/github/release/indigophp/indigo-supervisor.svg?style=flat-square)](https://github.com/indigophp/indigo-supervisor/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Quality Score](https://img.shields.io/scrutinizer/g/indigophp/indigo-supervisor.svg?style=flat-square)](https://scrutinizer-ci.com/g/indigophp/indigo-supervisor)
+[![Total Downloads](https://img.shields.io/packagist/dt/indigophp/indigo-supervisor.svg?style=flat-square)](https://packagist.org/packages/indigophp/indigo-supervisor)
 
-**Indigo SUpervisor module.**
+**IndigoPHP Supervisor component.**
 
 
 ## Install
 
 Via Composer
 
-``` json
-{
-    "require": {
-        "indigophp/indigo-supervisor": "@stable"
-    }
-}
+``` bash
+$ composer require indigophp/indigo-supervisor
 ```
 
 
@@ -26,7 +23,7 @@ Via Composer
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/indigophp/indigo-supervisor/blob/develop/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 
 ## Credits
@@ -37,4 +34,4 @@ Please see [CONTRIBUTING](https://github.com/indigophp/indigo-supervisor/blob/de
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/indigophp/indigo-supervisor/blob/develop/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
